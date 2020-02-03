@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface name="SVES_INBOUND">
+     <line type="SVES_MATCH_REQUEST_RESPONSE" identification="default">
+   	    <identify character="1" position="1"/>
+          <section name="MAIN_SECTION">
+               <startPosition>1</startPosition>
+               <length>156</length>
+               <dateFormat>MMddyyyy</dateFormat>
+               <delimitation type="length"/>
+               <fields>
+					<field name="SSN" 						length="9"  />
+					<field name="CAN" 						length="9"  />
+					<field name="BIC" 						length="3"  />
+					<field name="SURNAME" 					length="19" />
+					<field name="MIDDLE_INITIAL" 			length="1"  />
+					<field name="FIRST_NAME" 				length="12" />
+					<field name="DATE_OF_BIRTH" 			length="8"  isDate="true"/>
+					<field name="SEX" 						length="1"  />
+					<field name="STATE_AGENCY_CODE" 		length="3"  />
+					<field name="CATEGORY_ASSISTANCE_CODE" 	length="1"  />
+					<field name="STATE_COMMUNICATION_CODE" 	length="3"  />
+					<field name="INPUT_WELFARE_ID_NO" 	    length="22"  />  <!-- contains the CIN first 10 positions -->
+					<field name="DATE_OF_WTPY_RESPONSE"     length="8"  isDate="true"/>
+					<field name="ERROR_CONDITION_CODE" 		length="3"  />
+				   	<field name="IDENTITY_DISCREPANCY_CODE" length="2"  />
+				   	<field name="FILLER"                    length="3"  />
+				   	<field name="VERIFICATION_CODE"         length="1"  />
+				   	<field name="VERIFICATION_SSN_DATA"     length="45" />
+				   	<field name="RECORD_TYPE"               length="1"  />
+					<field name="TITLE_II_STATUS" 			length="1"  />
+					<field name="TITLE_XVI_STATUS" 		    length="1"  />
+               </fields>
+          </section>
+     </line>
+     <!-- SVES RESPONSE TYPE 1 -->
+     <line type="SVES_MATCH_STANDARD_RESPONSE" identification="character">
+   	    <identify character="1" position="154"/>
+          <section name="MAIN_SECTION">
+               <startPosition>1</startPosition>
+               <length>0</length> <!-- As its of variable length setting 0 to read entire line without neglecting the line based on length; Total length: 839 -->
+               <dateFormat>MMddyyyy</dateFormat>
+               <delimitation type="flexilength"/>
+               <fields>
+					<field name="SSN" 						length="9"  />
+					<field name="CAN" 						length="9"  />
+					<field name="BIC" 						length="3"  />
+					<field name="SURNAME" 					length="19" />
+					<field name="MIDDLE_INITIAL" 			length="1"  />
+					<field name="FIRST_NAME" 				length="12" />
+					<field name="DATE_OF_BIRTH" 			length="8"  isDate="true"/>
+					<field name="SEX" 						length="1"  />
+					<field name="STATE_AGENCY_CODE" 		length="3"  />
+					<field name="CATEGORY_ASSISTANCE_CODE" 	length="1"  />
+					<field name="STATE_COMMUNICATION_CODE" 	length="3"  />
+					<field name="INPUT_WELFARE_ID_NO" 	    length="22"  />  <!-- contains the CIN first 10 positions -->
+					<field name="DATE_OF_WTPY_RESPONSE"     length="8"  isDate="true"/>
+					<field name="ERROR_CONDITION_CODE" 		length="3"  />
+				   	<field name="IDENTITY_DISCREPANCY_CODE" length="2"  />
+				   	<field name="FILLER"                    length="3"  />
+				   	<field name="VERIFICATION_CODE"         length="1"  />
+				   	<field name="VERIFICATION_SSN_DATA"     length="45" />
+				   	<field name="RECORD_TYPE"               length="1"  />
+					<field name="TITLE_II_STATUS" 			length="1"  />
+					<field name="TITLE_XVI_STATUS" 		    length="1"  />
+               </fields>
+          </section>
+     </line>
+     <!-- SVES RESPONSE TYPE 2 -->
+     <line type="SVES_MATCH_TITLE_II_RESPONSE" identification="character">
+   	    <identify character="2" position="154"/>
+          <section name="MAIN_SECTION">
+               <startPosition>1</startPosition>
+               <length>0</length>  <!-- As its of variable length setting 0 to read entire line without neglecting the line based on length; Total length: 839 -->
+               <dateFormat>MMddyyyy</dateFormat>
+               <delimitation type="flexilength"/>
+               <fields>
+					<field name="SSN" 							length="9"  />
+					<field name="CAN" 							length="9"  />
+					<field name="BIC" 							length="3"  />
+					<field name="SURNAME" 						length="19" />
+					<field name="MIDDLE_INITIAL" 				length="1"  />
+					<field name="FIRST_NAME" 					length="12" />
+					<field name="DATE_OF_BIRTH" 				length="8"  isDate="true"/>
+					<field name="SEX" 							length="1"  />
+					<field name="STATE_AGENCY_CODE" 			length="3"  />
+					<field name="CATEGORY_ASSISTANCE_CODE" 		length="1"  />
+					<field name="STATE_COMMUNICATION_CODE" 		length="3"  />
+					<field name="INPUT_WELFARE_ID_NO" 	    	length="22"  />  <!-- contains the CIN first 10 positions -->
+					<field name="DATE_OF_WTPY_RESPONSE"     	length="8"  isDate="true"/>
+					<field name="ERROR_CONDITION_CODE" 			length="3"  />
+				   	<field name="IDENTITY_DISCREPANCY_CODE" 	length="2"  />
+				   	<field name="FILLER"                    	length="3"  />
+				   	<field name="VERIFICATION_CODE"         	length="1"  />
+				   	<field name="VERIFICATION_SSN_DATA"     	length="45" />
+				   	<field name="RECORD_TYPE"               	length="1"  />
+					<field name="TITLE_II_STATUS" 				length="1"  />
+					<field name="TITLE_XVI_STATUS" 		    	length="1"  />
+					<field name="FILLER"                    	length="12"  /> <!-- 157-168 -->
+					<field name="STATE_CODE"                    	length="2"  /> <!-- 169-170 -->
+					<field name="FILLER"                    	length="195"  /> <!-- 171-365 -->
+					<field name="LAST_NAME"                   length="12"  /> <!-- 366-377 -->
+					<field name="FILLER"                    	length="19"  /> <!-- 378-396 -->
+					<!-- TITLE II INCOME INFO STARTS -->					
+					<field name="TITLE_II_GROSS_PAY_AMT" 		length="6"  /> <!-- 397-402 -->
+					<field name="FILLER"          				length="83"  /> <!-- 403-485 -->
+					<field name="OWN_SSN"          				length="9"  /> <!-- 486-494 -->					
+					<field name="DECEASED_DATE"          		length="8"  isDate="true" required="false"/> <!-- 495-502 -->
+					<field name="FILLER"          				length="69"  /> <!-- 503-571 -->
+					<field name="DUAL_ENTITLEMENT_NUMBER"   	length="9"  /> <!-- 572-580 -->
+					<field name="DUAL_ENTITLEMENT_BIC"			length="2"  /> <!-- 581-582 -->
+					<field name="TITLE_II_NO_OF_OCCURRENCES"	length="2"  /> <!-- 583-584 -->
+					<!-- NOTE : SS PAYMENT OCCURNCE FIELD(s) WITH MAX OCCURENCE BEING 8 ACCORDING TO SS MANUAL -->
+					<!-- FIRST OCCURENCE -->
+					<field name="TITLE_II_AS_PAID_DATE"     	length="6"  /> <!-- 585 - 590 -->
+					<field name="TITLE_II_AS_PAID_AMT" 			length="6"  /> <!-- 591-596 -->
+					<field name="TITLE_II_AS_PAID_TYPE_CODE"	length="1"  /> <!-- 597 -->
+					<!-- SECOND OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE"        length="6"  /> <!-- 598-603 -->
+					<field name="TITLE_II_PAY_AMT" 		length="6"  /> <!-- 604-609 -->
+					<field name="TITLE_II_PAY_TYPE_CODE" 		length="1"  /> <!-- 610 -->
+					<!-- THIRD OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_1"        length="6"  /> <!-- 611-616 -->
+					<field name="TITLE_II_PAY_AMT_1" 		length="6"  /> <!-- 617-622 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_1" 		length="1"  /> <!-- 623 -->
+					<!-- FOURTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_2"        length="6"  /> <!-- 624-629 -->
+					<field name="TITLE_II_PAY_AMT_2" 		length="6"  /> <!-- 630-635 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_2" 		length="1"  /> <!-- 636 -->
+					<!-- FIFTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_3"        length="6"  /> <!-- 637-642 -->
+					<field name="TITLE_II_PAY_AMT_3" 		length="6"  /> <!-- 643-648 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_3" 		length="1"  /> <!-- 649 -->
+					<!-- SIXTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_4"        length="6"  /> <!-- 650-655 -->
+					<field name="TITLE_II_PAY_AMT_4" 		length="6"  /> <!-- 656-661 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_4" 		length="1"  /> <!-- 662 -->
+					<!-- SEVENTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_5"        length="6"  /> <!-- 663-668 -->
+					<field name="TITLE_II_PAY_AMT_5" 		length="6"  /> <!-- 669-674 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_5" 		length="1"  /> <!-- 675 -->
+					<!-- EIGHTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_6"        length="6"  /> <!-- 676-681 -->
+					<field name="TITLE_II_PAY_AMT_6" 		length="6"  /> <!-- 682-687 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_6" 		length="1"  /> <!-- 688 -->
+					<!-- TITLE II INCOME INFO ENDS -->
+					<!-- field name="FILLER"                    length="151" /--> <!-- 689-839 -->
+               </fields>
+          </section>
+     </line>
+     <!-- SVES RESPONSE TYPE 3 -->
+     <line type="SVES_MATCH_TITLE_XVI_RESPONSE" identification="character">
+   	    <identify character="3" position="154"/>
+          <section name="MAIN_SECTION">
+               <startPosition>1</startPosition>
+               <length>0</length>  <!-- As its of variable length setting 0 to read entire line without neglecting the line based on length; Total length: 1468 -->
+               <dateFormat>MMddyyyy</dateFormat>
+               <delimitation type="flexilength"/>
+               <fields>
+					<field name="SSN" 						length="9"  />
+					<field name="CAN" 						length="9"  />
+					<field name="BIC" 						length="3"  />
+					<field name="SURNAME" 					length="19" />
+					<field name="MIDDLE_INITIAL" 			length="1"  />
+					<field name="FIRST_NAME" 				length="12" />
+					<field name="DATE_OF_BIRTH" 			length="8"  isDate="true"/>
+					<field name="SEX" 						length="1"  />
+					<field name="STATE_AGENCY_CODE" 		length="3"  />
+					<field name="CATEGORY_ASSISTANCE_CODE" 	length="1"  />
+					<field name="STATE_COMMUNICATION_CODE" 	length="3"  />
+					<field name="INPUT_WELFARE_ID_NO" 	    length="22"  />  <!-- contains the CIN first 10 positions -->
+					<field name="DATE_OF_WTPY_RESPONSE"     length="8"  isDate="true"/>
+					<field name="ERROR_CONDITION_CODE" 		length="3"  />
+				   	<field name="IDENTITY_DISCREPANCY_CODE" length="2"  />
+				   	<field name="FILLER"                    length="3"  />
+				   	<field name="VERIFICATION_CODE"         length="1"  />
+				   	<field name="VERIFICATION_SSN_DATA"     length="45" />
+				   	<field name="RECORD_TYPE"               length="1" />
+					<field name="TITLE_II_STATUS" 			length="1" />
+					<field name="TITLE_XVI_STATUS" 		    length="1" />
+					<field name="FILLER"                    length="18" /> <!-- 157-174 -->
+					<field name="OWN_SSN"                    length="9" /> <!-- 175-183 -->
+					<field name="FILLER"                    length="18" /> <!-- 184-201 -->
+					<field name="DECEASED_DATE"             length="8" isDate="true" required="false" /> <!-- 	202-209 -->
+					<field name="FILLER"                    length="35" /> <!--210-244 -->
+					<field name="LAST_NAME"                 length="19" /> <!--245-263 -->
+					<field name="FILLER"                    length="260" /> <!--264-523 -->
+					<field name="STATE_CODE"                length="2"  /> <!-- 524-525 -->
+					<field name="FILLER"                    length="551"  /> <!-- 526-1076 -->
+										<!-- TITLE XVI INCOME INFO STARTS -->
+					<field name="TITLE_XVI_GROSS_PAY_DATE" 		length="8" isDate="true" required="false"/> <!-- 1077-1084 -->
+					<field name="TITLE_XVI_GROSS_PAY_AMT"       	length="7" /> <!-- 1085-1091 -->
+					<field name="TITLE_XVI_GROSS_PAY_STATE_SUPP_AMT"  length="7" /> <!-- 1092-1098 -->
+					<field name="TITLE_XVI_INC_NO_OF_OCCURRENCES"        length="2" /> <!-- 1099-1100 -->
+					<!-- NOTE: SSI PAYMENT OCCURNCE FIELD(s) WITH MAX OCCURENCE BEING 8 ACCORDING TO SS MANUAL -->
+					<!-- FIRST OCCURENCE -->
+					<field name="TITLE_XVI_AS_PAID_DATE" 		length="8" isDate="true" required="false"/> <!-- 1101-1108 -->
+					<field name="TITLE_XVI_AS_PAID_AMT"       	length="7" /> <!-- 1109-1115 -->
+					<field name="TITLE_XVI_AS_PAID_STATE_SUPP_AMT"  length="7" /> <!-- 1116-1122 -->
+					<field name="TITLE_XVI_AS_PAID_PAY_CODE"        length="1" /> <!-- 1123 -->
+					<field name="TITLE_XVI_AS_PAID_PAY_TYPE"        length="1" /> <!-- 1124 -->
+					<!-- SECOND OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE" 		length="8" isDate="true" required="false"/> <!-- 1125-1132 -->
+					<field name="TITLE_XVI_PAY_AMT"       	length="7" /> <!-- 1133-1139 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT"  length="7" /> <!-- 1140-1146 -->
+					<field name="TITLE_XVI_PAY_CODE"        length="1" /> <!-- 1147 -->
+					<field name="TITLE_XVI_PAY_TYPE"        length="1" /> <!-- 1148 -->
+					<!-- THIRD OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_1" 	length="8" isDate="true" required="false"/> <!-- 1149-1156 -->
+					<field name="TITLE_XVI_PAY_AMT_1"    length="7" /> <!-- 1157-1163 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_1"  length="7" /> <!-- 1164-1170 -->
+					<field name="TITLE_XVI_PAY_CODE_1"        length="1" /> <!-- 1171 -->
+					<field name="TITLE_XVI_PAY_TYPE_1"        length="1" /> <!-- 1172 -->
+					<!-- FOURTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_2" 	length="8" isDate="true" required="false"/> <!-- 1173-1180 -->
+					<field name="TITLE_XVI_PAY_AMT_2"    length="7" /> <!-- 1181-1187 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_2"  length="7" /> <!-- 1188-1194 -->
+					<field name="TITLE_XVI_PAY_CODE_2"        length="1" /> <!-- 1195 -->
+					<field name="TITLE_XVI_PAY_TYPE_2"        length="1" /> <!-- 1196 -->
+					<!-- FIFTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_3" 	length="8" isDate="true" required="false"/> <!-- 1197-1204 -->
+					<field name="TITLE_XVI_PAY_AMT_3"    length="7" /> <!-- 1205-1211 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_3"  length="7" /> <!-- 1212-1218 -->
+					<field name="TITLE_XVI_PAY_CODE_3"        length="1" /> <!-- 1219 -->
+					<field name="TITLE_XVI_PAY_TYPE_3"        length="1" /> <!-- 1220 -->
+					<!-- SIXTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_4" 	length="8" isDate="true" required="false"/> <!-- 1221-1228 -->
+					<field name="TITLE_XVI_PAY_AMT_4"    length="7" /> <!-- 1229-1235 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_4"  length="7" /> <!-- 1236-1242 -->
+					<field name="TITLE_XVI_PAY_CODE_4"        length="1" /> <!-- 1243 -->
+					<field name="TITLE_XVI_PAY_TYPE_4"        length="1" /> <!-- 1244 -->
+					<!-- SEVENTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_5" 	length="8" isDate="true" required="false"/> <!-- 1245- -->
+					<field name="TITLE_XVI_PAY_AMT_5"    length="7" /> <!-- 1253- -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_5"  length="7" /> <!-- 1260- -->
+					<field name="TITLE_XVI_PAY_CODE_5"        length="1" /> <!-- 1267 -->
+					<field name="TITLE_XVI_PAY_TYPE_5"        length="1" /> <!-- 1268 -->
+					<!-- EIGHTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_6" 	length="8" isDate="true" required="false"/> <!-- 1269-1276 -->
+					<field name="TITLE_XVI_PAY_AMT_6"    length="7" /> <!-- 1277-1283 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_6"  length="7" /> <!-- 1284-1290 -->
+					<field name="TITLE_XVI_PAY_CODE_6"        length="1" /> <!-- 1291 -->
+					<field name="TITLE_XVI_PAY_TYPE_6"        length="1" /> <!-- 1292 -->
+					<!-- TITLE XVI INCOME INFO ENDS -->
+					<field name="FILLER"        length="47" /> <!-- 1293-1339 -->
+					<field name="MEDICAID_TEST_INDICATOR"        length="1" /> <!-- 1340 -->					
+					<!-- field name="FILLER"        			length="128" /--> <!-- 1341-1468 -->																									
+               </fields>
+          </section>
+     </line>
+     <!-- SVES RESPONSE TYPE 4 -->
+     <line type="SVES_MATCH_TITLE_II_XVI_RESPONSE" identification="character">
+   	    <identify character="4" position="154"/>
+          <section name="MAIN_SECTION">
+               <startPosition>1</startPosition>
+               <length>0</length>  <!-- As its of variable length setting 0 to read entire line without neglecting the line based on length; Total length: 2151 -->
+               <dateFormat>MMddyyyy</dateFormat>
+               <delimitation type="flexilength"/>
+               <fields>
+					<field name="SSN" 				length="9"  />
+					<field name="CAN" 				length="9"  />
+					<field name="BIC" 				length="3"  />
+					<field name="SURNAME" 				length="19" />
+					<field name="MIDDLE_INITIAL" 			length="1"  />
+					<field name="FIRST_NAME" 				length="12" />
+					<field name="DATE_OF_BIRTH" 			length="8" isDate="true"/>
+					<field name="SEX" 						length="1"  />
+					<field name="STATE_AGENCY_CODE" 		length="3"  />
+					<field name="CATEGORY_ASSISTANCE_CODE" 	length="1"  />
+					<field name="STATE_COMMUNICATION_CODE" 	length="3"  />
+					<field name="INPUT_WELFARE_ID_NO" 	    length="22"  />  <!-- contains the CIN first 10 positions -->
+					<field name="DATE_OF_WTPY_RESPONSE"     length="8" isDate="true"/>
+					<field name="ERROR_CONDITION_CODE" 		length="3"  />
+				   	<field name="IDENTITY_DISCREPANCY_CODE" length="2"  />
+				   	<field name="FILLER"                    length="3"  />
+				   	<field name="VERIFICATION_CODE"         length="1"  />
+				   	<field name="VERIFICATION_SSN_DATA"     length="45" />
+				   	<field name="RECORD_TYPE"               length="1"  />
+					<field name="TITLE_II_STATUS" 			length="1"  />
+					<field name="TITLE_XVI_STATUS" 		    length="1"  />
+					<field name="FILLER"                    	length="12"  /> <!-- 157-168 -->
+					<field name="STATE_CODE"                    	length="2"  /> <!-- 169-170 -->
+					<field name="FILLER"                    	length="226"  /> <!-- 171-396 -->
+										<!-- TITLE II INCOME INFO STARTS -->
+					<field name="TITLE_II_GROSS_PAY_AMT" 		length="6"  /> <!-- 397-402 -->
+					<field name="FILLER"          				length="92"  /> <!-- 403-494 -->
+					<field name="DECEASED_DATE"          		length="8"  isDate="true" required="false"/> <!-- 495-502 -->
+					<field name="FILLER"          				length="69"  /> <!-- 503-571 -->
+					<field name="DUAL_ENTITLEMENT_NUMBER"   	length="9"  /> <!-- 572-580 -->
+					<field name="DUAL_ENTITLEMENT_BIC"			length="2"  /> <!-- 581-582 -->
+					<field name="TITLE_II_NO_OF_OCCURRENCES"	length="2"  /> <!-- 583-584 -->
+					<!-- NOTE : SS PAYMENT OCCURNCE FIELD(s) WITH MAX OCCURENCE BEING 8 ACCORDING TO SS MANUAL -->
+					<!-- FIRST OCCURENCE -->
+					<field name="TITLE_II_AS_PAID_DATE"        length="6"  /> <!-- 585 - 590 -->
+					<field name="TITLE_II_AS_PAID_AMT" 		length="6"  /> <!-- 591-596 -->
+					<field name="TITLE_II_AS_PAID_TYPE_CODE" 		length="1"  /> <!-- 597 -->
+					<!-- SECOND OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE"        length="6"  /> <!-- 598-603 -->
+					<field name="TITLE_II_PAY_AMT" 		length="6"  /> <!-- 604-609 -->
+					<field name="TITLE_II_PAY_TYPE_CODE" 		length="1"  /> <!-- 610 -->
+					<!-- THIRD OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_1"        length="6"  /> <!-- 611-616 -->
+					<field name="TITLE_II_PAY_AMT_1" 		length="6"  /> <!-- 617-622 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_1" 		length="1"  /> <!-- 623 -->
+					<!-- FOURTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_2"        length="6"  /> <!-- 624-629 -->
+					<field name="TITLE_II_PAY_AMT_2" 		length="6"  /> <!-- 630-635 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_2" 		length="1"  /> <!-- 636 -->
+					<!-- FIFTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_3"        length="6"  /> <!-- 637-642 -->
+					<field name="TITLE_II_PAY_AMT_3" 		length="6"  /> <!-- 643-648 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_3" 		length="1"  /> <!-- 649 -->
+					<!-- SIXTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_4"        length="6"  /> <!-- 650-655 -->
+					<field name="TITLE_II_PAY_AMT_4" 		length="6"  /> <!-- 656-661 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_4" 		length="1"  /> <!-- 662 -->
+					<!-- SEVENTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_5"        length="6"  /> <!-- 663-668 -->
+					<field name="TITLE_II_PAY_AMT_5" 		length="6"  /> <!-- 669-674 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_5" 		length="1"  /> <!-- 675 -->
+					<!-- EIGHTH OCCURENCE -->
+					<field name="TITLE_II_PAY_DATE_6"        length="6"  /> <!-- 676-681 -->
+					<field name="TITLE_II_PAY_AMT_6" 		length="6"  /> <!-- 682-687 -->
+					<field name="TITLE_II_PAY_TYPE_CODE_6" 		length="1"  /> <!-- 688 -->
+					<!-- TITLE II INCOME INFO ENDS -->
+					<field name="FILLER"        length="169"  /> <!-- 689-857 -->
+					<field name="OWN_SSN"        length="9"  /> <!-- 858-866 -->
+					<field name="FILLER"        length="61"  /> <!-- 867-927 -->
+					<field name="LAST_NAME"     length="19"  /> <!-- 928-946 -->
+					<field name="FILLER"        length="813"  /> <!-- 947-1759 -->
+					<!-- TITLE XVI INCOME INFO STARTS -->
+					<field name="TITLE_XVI_GROSS_PAY_DATE" 		length="8" isDate="true" required="false"/> <!-- 1760-1767 -->
+					<field name="TITLE_XVI_GROSS_PAY_AMT"       	length="7" /> <!-- 1768-1774 -->
+					<field name="TITLE_XVI_GROSS_PAY_STATE_SUPP_AMT"  length="7" /> <!-- 1775-1781 -->
+					<field name="TITLE_XVI_INC_NO_OF_OCCURRENCES"        length="2" /> <!-- 1782-1783 -->
+					<!-- NOTE : SSI PAYMENT OCCURNCE FIELD(s) WITH MAX OCCURENCE BEING 8 ACCORDING TO SS MANUAL -->
+					<!-- FIRST OCCURENCE -->
+					<field name="TITLE_XVI_AS_PAID_DATE" 		length="8" isDate="true" required="false"/> <!-- 1784-1791 -->
+					<field name="TITLE_XVI_AS_PAID_AMT"       	length="7" /> <!-- 1792-1798 -->
+					<field name="TITLE_XVI_AS_PAID_STATE_SUPP_AMT"  length="7" /> <!-- 1799-1805 -->
+					<field name="TITLE_XVI_AS_PAID_PAY_CODE"        length="1" /> <!-- 1806 -->
+					<field name="TITLE_XVI_AS_PAID_PAY_TYPE"        length="1" /> <!-- 1807 -->
+					<!-- SECOND OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE" 	length="8" isDate="true" required="false"/> <!-- 1808-1815 -->
+					<field name="TITLE_XVI_PAY_AMT"    length="7" /> <!-- 1816-1822 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT"  length="7" /> <!-- 1823-1829 -->
+					<field name="TITLE_XVI_PAY_CODE"        length="1" /> <!-- 1830 -->
+					<field name="TITLE_XVI_PAY_TYPE"        length="1" /> <!-- 1831 -->
+					<!-- THIRD OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_1" 	length="8" isDate="true" required="false"/> <!-- 1832-1839 -->
+					<field name="TITLE_XVI_PAY_AMT_1"    length="7" /> <!-- 1840-1846 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_1"  length="7" /> <!-- 1847-1853 -->
+					<field name="TITLE_XVI_PAY_CODE_1"        length="1" /> <!-- 1854 -->
+					<field name="TITLE_XVI_PAY_TYPE_1"        length="1" /> <!-- 1855 -->
+					<!-- FOURTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_2" 	length="8" isDate="true" required="false"/> <!-- 1856-1863 -->
+					<field name="TITLE_XVI_PAY_AMT_2"    length="7" /> <!-- 1864-1870 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_2"  length="7" /> <!-- 1871-1877 -->
+					<field name="TITLE_XVI_PAY_CODE_2"        length="1" /> <!-- 1878 -->
+					<field name="TITLE_XVI_PAY_TYPE_2"        length="1" /> <!-- 1879 -->
+					<!-- FIFTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_3" 	length="8" isDate="true" required="false"/> <!-- 1880-1887 -->
+					<field name="TITLE_XVI_PAY_AMT_3"    length="7" /> <!-- 1888-1894 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_3"  length="7" /> <!-- 1895-1901 -->
+					<field name="TITLE_XVI_PAY_CODE_3"        length="1" /> <!-- 1902 -->
+					<field name="TITLE_XVI_PAY_TYPE_3"        length="1" /> <!-- 1903 -->
+					<!-- SIXTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_4" 	length="8" isDate="true" required="false"/> <!-- 1904-1911 -->
+					<field name="TITLE_XVI_PAY_AMT_4"    length="7" /> <!-- 1912-1918 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_4"  length="7" /> <!-- 1919-1925 -->
+					<field name="TITLE_XVI_PAY_CODE_4"        length="1" /> <!-- 1926 -->
+					<field name="TITLE_XVI_PAY_TYPE_4"        length="1" /> <!-- 1927 -->
+					<!-- SEVENTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_5" 	length="8" isDate="true" required="false"/> <!-- 1928-1935 -->
+					<field name="TITLE_XVI_PAY_AMT_5"    length="7" /> <!-- 1936-1942 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_5"  length="7" /> <!-- 1943-1949 -->
+					<field name="TITLE_XVI_PAY_CODE_5"        length="1" /> <!-- 1950 -->
+					<field name="TITLE_XVI_PAY_TYPE_5"        length="1" /> <!-- 1951 -->
+					<!-- EIGHTH OCCURENCE -->
+					<field name="TITLE_XVI_PAY_DATE_6" 	length="8" isDate="true" required="false"/> <!-- 1952-1959 -->
+					<field name="TITLE_XVI_PAY_AMT_6"    length="7" /> <!-- 1960-1966 -->
+					<field name="TITLE_XVI_PAY_STATE_SUPP_AMT_6"  length="7" /> <!-- 1967-1973 -->
+					<field name="TITLE_XVI_PAY_CODE_6"        length="1" /> <!-- 1974 -->
+					<field name="TITLE_XVI_PAY_TYPE_6"        length="1" /> <!-- 1975 -->
+					<!-- TITLE XVI INCOME INFO ENDS -->
+					<field name="FILLER" length="47" /><!-- 1976-2022 -->
+					<field name="MEDICAID_TEST_INDICATOR"        length="1" /> <!-- 2023 -->					
+					<!-- field name="FILLER"        			length="128" /--> <!-- 2024-2151 -->
+               </fields>
+          </section>
+     </line>
+</interface>
